@@ -369,7 +369,7 @@
 ## print(lst)
 ## print(sample(lst, 1))
 # from random import *
-# users = range(1,21)
+# users = range(1,21) # 1부터 20까지 숫자를 생성
 # users = list(users)
 # lucky = sample(users, 4)
 # shuffle(lucky)
@@ -382,16 +382,145 @@
 # weather = input("오늘 날씨는 어때요? ")
 # if weather =="비" or weather =="눈" :
 #     print("우산을 챙기세요")
-# elif weather == "미세먼자" :
+# elif weather == "미세먼지" :
 #     print("마스크를 챙기세요")
 # else : 
 #     print("준비물이 필요 없어요")
-temp = int(input("기온은 어때요? "))
-if 30 <= temp : 
-    print("너무 더워요. 나가지 마세요.")
-elif 10 <= temp  and temp <30 :
-    print("괜찮은 날씨에요")
-elif 0 <= temp <10 :
-    print("외투를 챙기세요")
-else:
-    print("너무 추워요. 나가지 마세요")
+# temp = int(input("기온은 어때요? "))
+# if 30 <= temp : 
+#     print("너무 더워요. 나가지 마세요.")
+# elif 10 <= temp  and temp <30 :
+#     print("괜찮은 날씨에요")
+# elif 0 <= temp <10 :
+#     print("외투를 챙기세요")
+# else:
+#     print("너무 추워요. 나가지 마세요")
+
+## for
+# print("대기번호 : 1")
+# print("대기번호 : 2")
+# print("대기번호 : 3")
+# print("대기번호 : 4")
+# #randrange()
+# for waiting_no in range(1, 6): # 1,2,3,4,5
+#     print("대기번호 : {0}" .format(waiting_no))
+# starbucks = ["아이언맨", "토르", "캡틴 아메리카"]
+# for customer in starbucks:
+#     print("{0}, 커피가 준비 되었습니다.".format(customer))
+
+## while
+# customer = "토르"
+# index =  5
+# while index >= 1:
+#     print("{0}, 커피가 준비 되었습니다. {1} 번 남았습니다." .format(customer, index))
+#     index -=1
+#     if index == 0:
+#         print("커피는 폐기처분 되었습니다.")
+# customer = "아이언맨"
+# index = 1
+# while True:
+#     print("{0}, 커피가 준비 되었습니다. 호출 {1} 회" .format(customer, index))
+#     index += 1
+# customer = "토르"
+# person = "Unknown"
+# while person != customer :
+#     print("{0}, 커피가 준비 되었습니다.".format(customer))
+#     person = input("이름이 어떻게 되세요? ") 
+
+## continue 와 break
+# absent = [2,5] #결석
+# no_book =[7]
+# for student in range(1, 11) : #1,2,3,4,5,6,7,8,9,10
+#     if student in absent:
+#         continue
+#     elif student in no_book:
+#         print("오늘 수업 여기까지. {0}는 교무실로 따라와".format(student))
+#         break
+#     print("{0}, 책을 읽어봐".format(student))
+
+## 한줄 for
+# #출석번호가 1 2 3 4, 앞에 100을 붙이기로 함 --> 101, 102, 103, 104.
+# students = [1,2,3,4,5]
+# print(students)
+# students = [i+100 for i in students]
+# print(students)
+# #학생 이름을 길이로 변환
+# students = ["Iron man", "Thor", "Captin America"]
+# students = [len(i) for i in students]
+# print(students)
+# #학생 이름을 대문자로 변환
+# students = ["Iron man", "Thor", "Captin America"]
+# students = [i.upper() for i in students]
+# print(students)
+
+## 퀴즈 5
+# Quiz) 당신은 Cocoa 서비스를 이용하는 택시 기사님입니다.
+# 50명의 승객과 매칭 기회가 있을 때, 총 탑승 승객 수를 구하는 프로그램을 작성하시오.
+# 조건1 :  승객별 운행 소요 시간은 5분 ~ 50분 사이의 승객만 매칭해야 합니다.
+# 조건2 :  당신은 소요 시간 5분 ~ 15분 사이의 승객만 매칭해야 합니다.
+# (출력물 예제)
+# [O] 1번째 손님 (소요시간 : 15분)
+# [ ] 2번째 손님 (소요시간 : 50분)
+# [O] 3번째 손님 (소요시간 : 5분)
+# ...
+# [ ] 50번째 손님 (소요시간 : 16분)
+# 총 탑승 승객 : 2분
+# 풀이
+# from random import *
+# mywork_time = range(5,15)                  #5분~ 15분 소요 시간
+# cnt = 0                                    #총 탑승 승객 수
+# for customers in range(1,51):              #1 ~ 50 승객 수
+#     arrive_time = randint(5,50)            #5분 ~ 50분 소요시간
+#     if arrive_time in mywork_time :        #5분 ~ 15분 이내의 손님(매칭성공)
+#         print("[O] {0}번째 손님 (소요시간 : {1}분)".format(customers, arrive_time))
+#         cnt += 1                           #탑승 승객 수 증가 처리
+#     else :                                 #매칭 실패
+#         print("[ ] {0}번째 손님 (소요시간 : {1}분)".format(customers, arrive_time))
+# print("총 탑승 승객 : {0} 분".format(cnt))
+
+## 함수 
+# def open_account():
+#     print("새로운 계좌가 생성 되었습니다.")
+# open_account()
+
+##전달 값과 반환 값
+# def deposit(balance, money): #입금
+#     print("입금이 완료 되었습니다. 잔액은 {0} 원 입니다.".format(balance + money))
+#     return balance + money
+# def withdraw(balance, money): #출금
+#     if balance >= money: #잔액이 출금보다 많으면
+#         print("출금이 완료 되었습니다. 잔액은 {0} 원 입니다.".format(balance - money))
+#         return balance - money
+#     else:
+#         print("출금이 완료되지 않았습니다. 잔액은 {0} 원 입니다.".format(balance))
+# def withdraw_night(balance, money): #영업외 시간에 출금
+#     commission = 100 #수수료 100원
+#     print("수수료는 {0} 원이며 잔액은 {1} 원입니다.".format(commission, balance))
+#     return commission, balance - money - commission
+# balance =  0 #잔액
+# balance = deposit(balance, 1000)
+# balance = withdraw(balance, 500)
+# commission, balance = withdraw_night(balance, 500)
+
+## 기본값
+# def profile(name, age, main_lang):
+#     print("이름 :  {0}\t나이 : {1}\t주 사용 언어: {2}" \
+#         .format(name, age, main_lang))
+# profile("유재석", 20, "파이썬")
+# profile("김태호", 25, "자바")
+# # #같은 학교 같은 학년 같은 반 같은 수업
+# def profile1(name, age=17, main_lang="파이썬"):
+#     print("이름 :  {0}\t나이 : {1}\t주 사용 언어: {2}" \
+#         .format(name, age, main_lang))
+# profile1("유재석")
+# profile1("김태호")
+
+##키워드 값
+# def profile(name, age, main_lang):
+#      print("이름 :  {0}\t나이 : {1}\t주 사용 언어: {2}" \
+#          .format(name, age, main_lang))
+# profile(name="유재석", main_lang="파이썬", age=20)
+# profile(main_lang="자바", age=25, name="김태호")
+
+##가변 인자
+ 
